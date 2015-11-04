@@ -6,8 +6,23 @@
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
-<header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
+<header class="main-header post-head" {{#hasImage image}}style="background-image: url({{image}});"{{/hasImage}}>
+    {{#hasVideo image}}
+        <div class="post-image-overlay">
+            <img src="{{getVideoOverlay image}}" alt="{{title}}"/>
+        </div>
+        <video autoplay loop poster="{{image}}" id="post-video">
+            <source src="{{getVideoUrl image}}.mp4" type="video/mp4">
+        </video>
+    {{/hasVideo}}
+
+    {{#if tags}}
+        <nav class="main-header-tags">
+            {{tags separator=""}}
+        </nav>
+    {{/if}}
+
+    <nav class="main-nav clearfix">
         {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
         {{#if @blog.navigation}}
             <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
@@ -21,7 +36,7 @@
         <header class="post-header">
             <h1 class="post-title">{{title}}</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
+                <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
             </section>
         </header>
 
@@ -30,31 +45,6 @@
         </section>
 
         <footer class="post-footer">
-
-        {{! Everything inside the #author tags pulls data from the author }}
-        {{#author}}
-
-            {{#if image}}
-            <figure class="author-image">
-                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
-            </figure>
-            {{/if}}
-
-            <section class="author">
-                <h4><a href="{{url}}">{{name}}</a></h4>
-
-                {{#if bio}}
-                    <p>{{bio}}</p>
-                {{else}}
-                    <p>Read <a href="{{url}}">more posts</a> by this author.</p>
-                {{/if}}
-                <div class="author-meta">
-                    {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
-                    {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
-                </div>
-            </section>
-
-        {{/author}}
 
             <section class="share">
                 <h4>Share this post</h4>
