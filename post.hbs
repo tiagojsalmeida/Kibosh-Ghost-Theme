@@ -8,11 +8,10 @@
 
 <header class="main-header post-head" {{#hasImage image}}style="background-image: url({{image}});"{{/hasImage}}>
     {{#hasVideo image}}
-        <div class="post-image-overlay">
-            <img src="{{getVideoOverlay image}}" alt="{{title}}"/>
-        </div>
-        <video autoplay loop poster="{{image}}" id="post-video">
+        <div class="post-image-overlay" style="background-image: url({{getVideoOverlay image}});"></div>
+        <video autoplay loop poster="{{image}}" id="post-video" preload>
             <source src="{{getVideoUrl image}}.mp4" type="video/mp4">
+            <source src="{{getVideoUrl image}}.mov" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
         </video>
     {{/hasVideo}}
 
@@ -45,21 +44,38 @@
         </section>
 
         <footer class="post-footer">
-            <section class="share">
-                <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <span class="hidden">Twitter</span>
-                </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
-                </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <span class="hidden">Google+</span>
-                </a>
-            </section>
+            <div class="share-button">
+                <div class="lid">Share</div>
+                <div class="share-items">
+                    <a href="#" class="share-item" data-share="facebook">
+                        <span class="entypo-facebook"></span>
+                    </a>
+                    <a href="#" class="share-item" data-share="twitter">
+                        <span class="entypo-twitter"></span>
+                    </a>
+                    <a href="#" class="share-item" data-share="gplus">
+                        <span class="entypo-gplus"></span>
+                    </a>
+                </div>
+                <div class="thank-you">
+                    Thank you
+                </div>
+            </div>
+            <!--<section class="share">-->
+                <!--<h4>Share this post</h4>-->
+                <!--<a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"-->
+                    <!--onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">-->
+                    <!--<span class="hidden">Twitter</span>-->
+                <!--</a>-->
+                <!--<a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"-->
+                    <!--onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">-->
+                    <!--<span class="hidden">Facebook</span>-->
+                <!--</a>-->
+                <!--<a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"-->
+                   <!--onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">-->
+                    <!--<span class="hidden">Google+</span>-->
+                <!--</a>-->
+            <!--</section>-->
 
         </footer>
 

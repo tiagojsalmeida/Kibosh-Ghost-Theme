@@ -31,11 +31,11 @@ module.exports = function(){
     });
 
     hbs.registerHelper('getVideoOverlay', function(imageUrl) {
-        return imageUrl && imageUrl.replace('.png', '_overlay.png');
+        return imageUrl && imageUrl.replace(/.(jpg|png|gif)$/, '_overlay.png');
     });
 
     hbs.registerHelper('getVideoUrl', function(imageUrl) {
-        return imageUrl && imageUrl.replace('.png', '');
+        return imageUrl && imageUrl.replace(/.(jpg|png|gif)$/, '');
     });
 
     hbs.registerHelper('hasImage', function(url, options) {
