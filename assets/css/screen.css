@@ -246,6 +246,7 @@ h6 {
 a {
     color: #4A4A4A;
     transition: color 0.3s ease;
+    font-family: "Open Sans", sans-serif;
 }
 
 a:hover {
@@ -509,6 +510,7 @@ body.nav-opened .site-wrapper {
     background: #222 no-repeat center center;
     background-size: cover;
     overflow: hidden;
+    isolation: isolate;
 }
 
 .main-header .inner {
@@ -850,20 +852,6 @@ body.nav-opened .nav {
     transition: all 0.3s ease;
 }
 
-/* Special styles when overlaid on an image*/
-.main-nav.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    border: none;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
-}
-.no-cover .main-nav.overlay {
-    background: none;
-}
-
 /* The details of your blog. Defined in ghost/settings/ */
 .page-title {
     margin: 10px 0 10px 0;
@@ -1202,8 +1190,8 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 
 .post-head.main-header {
-    height: 65vh;
-    min-height: 180px;
+    height: 100vh;
+    min-height: 100vh;
 }
 
 .no-cover.post-head.main-header {
@@ -1214,8 +1202,8 @@ body:not(.post-template) .post-title {
 }
 
 .tag-head.main-header {
-    height: 40vh;
-    min-height: 180px;
+    height: 100vh;
+    min-height: 100vh;
 }
 
 .author-head.main-header {
@@ -1365,7 +1353,7 @@ body:not(.post-template) .post-title {
     overflow: hidden;
 }
 .read-next-story:hover:before {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.6);
     transition: all 0.2s ease;
 }
 .read-next-story:hover .post:before {
@@ -1382,7 +1370,7 @@ body:not(.post-template) .post-title {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.3);
     transition: all 0.5s ease;
 }
 
@@ -1391,20 +1379,20 @@ body:not(.post-template) .post-title {
     padding-bottom: 6rem;
 }
 
-.read-next-story .post:before {
-    content: "Read This Next";
-    padding: 4px 10px 5px;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    font-family: "Open Sans", sans-serif;
-    color: rgba(255,255,255,0.8);
-    border: rgba(255,255,255,0.5) 1px solid;
-    border-radius: 4px;
-    transition: all 0.5s ease;
-}
-.read-next-story.prev .post:before {
-    content: "You Might Enjoy";
-}
+/*.read-next-story .post:before {*/
+    /*content: "Read This Next";*/
+    /*padding: 4px 10px 5px;*/
+    /*text-transform: uppercase;*/
+    /*font-size: 1.1rem;*/
+    /*font-family: "Open Sans", sans-serif;*/
+    /*color: rgba(255,255,255,0.8);*/
+    /*border: rgba(255,255,255,0.5) 1px solid;*/
+    /*border-radius: 4px;*/
+    /*transition: all 0.5s ease;*/
+/*}*/
+/*.read-next-story.prev .post:before {*/
+    /*content: "You Might Enjoy";*/
+/*}*/
 
 .read-next-story h2 {
     margin-top: 1rem;
@@ -1790,23 +1778,6 @@ body:not(.post-template) .post-title {
         border: transparent;
     }
 
-    .main-nav.overlay a:hover {
-        color: #fff;
-        border-color: transparent;
-        background: transparent;
-    }
-
-    .no-cover .main-nav.overlay {
-        background: none;
-    }
-    .no-cover .main-nav.overlay .menu-button {
-        border: none;
-    }
-
-    .main-nav.overlay .menu-button {
-        border-color: transparent;
-    }
-
     .nav-title {
         top: 25px;
 
@@ -2067,3 +2038,58 @@ body:not(.post-template) .post-title {
    End of file. Animations should be the last thing here. Do not add stuff
    below this point, or it will probably fuck everything up.
    ========================================================================== */
+
+video#post-video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+}
+
+.post-image-overlay img{
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: overlay;
+}
+
+.main-header-tags{
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.main-header-tags a{
+    display: inline-block;
+    color: white;
+    padding: 8px 12px;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    margin: 0px 4px;
+    text-decoration: none;
+    
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-box-shadow: inset 0px 0px 0px 2px white;
+    -moz-box-shadow: inset 0px 0px 0px 2px white;
+    box-shadow: inset 0px 0px 0px 2px white;
+
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -ms-transition: background 0.2s;
+    -o-transition: background 0.2s;
+    transition: background 0.2s;
+}
+
+.main-header-tags a:hover{
+    background: white;
+    color: black
+}
