@@ -13,16 +13,9 @@
     {{/hasVideo}}
 
     {{#contentFor "metaTags"}}
-        <meta property="og:title" content="{{title}}" />
-        <meta property="og:url" content="{{url absolute="true"}}"/>
-        <meta property="og:description" content="{{excerpt}}"/>
-        <meta property="article:author" content="{{author.website}}"/>
-        <meta property="og:type" content="article"/>
-        {{#hasImage image}}
-            <meta property="og:image" content="{{image}}"/>
-        {{/hasImage}}
         {{#hasVideo image}}
-            <meta property="og:video" content="{{getVideoUrl image}}"/>
+            <meta property="og:video" content="{{getVideoUrl (image absolute="true")}}.mp4"/>
+            <meta property="og:video:type" content="video/mp4"/>
         {{/hasVideo}}
     {{/contentFor}}
 </header>
