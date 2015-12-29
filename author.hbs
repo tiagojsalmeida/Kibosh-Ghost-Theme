@@ -7,28 +7,26 @@
 {{#author}}
     <header class="main-header author-head {{#if cover}}" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
         <nav class="main-nav overlay clearfix">
-            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-            {{#if @blog.navigation}}
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            {{/if}}
         </nav>
     </header>
 
     <section class="author-profile inner">
-        {{#if image}}
-        <figure class="author-image">
-            <div class="img" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></div>
-        </figure>
-        {{/if}}
+        <!--{{#if image}}-->
+        <!--<figure class="author-image">-->
+            <!--<div class="img" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></div>-->
+        <!--</figure>-->
+        <!--{{/if}}-->
         <h1 class="author-title">{{name}}</h1>
-        {{#if bio}}
-            <h2 class="author-bio">{{bio}}</h2>
-        {{/if}}
-        <div class="author-meta">
-            {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
-            {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
-            <span class="author-stats"><i class="icon-stats"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
-        </div>
+        <section class="post-content">
+            <p>Covering over a thousand square kilometres with almost 8 million people, it’s hard to know where to start exploring a mega-metropolis like London. Taken as a whole, the city seems brash, noisy and impenetrable. But when you break it down, borough by borough, the real character shines through. From East End market traders on Roman Road, the oldest trade route in Britain, to the oh-so-chic (and expensive) fashions of Chelsea, every area – every street, even – has its own story to tell.</p>
+            <p>Black cabs, red buses, grey skies... welcome to London <br>
+                Black cabs, red buses, grey skies… welcome to London <br>
+                And it’s a story that’s constantly evolving. With the influx of immigrants from nations around the world – most recently, Eastern Europe – whole areas are taking on new and rapidly changing identities. Like Brick Lane, for example. Once a haven for Huguenots fleeing religious persecution in France, the area became home to the Irish, then Ashkenazi Jews, before morphing again under the influence of today’s Bengali population. Each group left its mark through food, music and religion. It’s this delightful mish-mash of normally disparate cultures that makes London neighbourhoods so wonderful to explore.</p>
+
+            <p><img src="http://www.urbantravelblog.com/wp-content/uploads/2009/11/IMG_2205-1024x768.jpg" alt=""></p>
+
+            <p>London is a city in flux, a city whose population and culture is influenced by and, in turn, influences the world. You can almost feel the creativity humming as people from all over the globe mix to create an atmosphere unlike any other. Dive in and see!</p>
+        </section>
     </section>
 {{/author}}
 

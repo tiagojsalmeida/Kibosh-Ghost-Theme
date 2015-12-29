@@ -3,21 +3,42 @@
 
 {{! The big featured header }}
 <header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
-    {{#if @blog.logo}}
-        <img class="blog-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
-    {{/if}}
-
-    <nav class="main-nav overlay clearfix">
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
-    </nav>
 </header>
 
 {{! The main content area on the homepage }}
 <main id="content" class="content" role="main">
+    <article class="read-next map-tags">
+        <a class="read-next-story map-tag" href="/tag/Germany" style="background-image: url('{{asset "img/Germany.png"}}')">
+            <div class="read-next-title">
+                Germany
+                <div class="read-next-countdown" data-countdown="Jan 04 2016"></div>
+            </div>
+        </a>
+        <div class="read-next-story map-tag" style="background-image: url('{{asset "img/Morocco.png"}}')">
+            <div class="read-next-title">
+                Morroco
+                <div class="read-next-countdown" data-countdown="Jan 28 2016"></div>
+            </div>
+        </div>
+        <div class="read-next-story map-tag" style="background-image: url('{{asset "img/Brazil.png"}}')">
+            <div class="read-next-title">
+                Brazil
+                <div class="read-next-countdown" data-countdown="Jan 29 2016"></div>
+            </div>
+        </div>
+        <div class="read-next-story map-tag" style="background-image: url('{{asset "img/Uruguay.png"}}')">
+            <div class="read-next-title">
+                Uruguay
+                <div class="read-next-countdown" data-countdown="Feb 01 2016"></div>
+            </div>
+        </div>
+        <div class="read-next-story map-tag" style="background-image: url('{{asset "img/Morocco.png"}}')">
+            <div class="read-next-title">
+                Argentina
+                <div class="read-next-countdown" data-countdown="March 01 2016"></div>
+            </div>
+        </div>
 
-    {{! The tag below includes the post loop - partials/loop.hbs }}
+    </article>
     {{> "loop"}}
-
 </main>

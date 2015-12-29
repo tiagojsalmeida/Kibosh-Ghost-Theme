@@ -23,17 +23,31 @@
     {{ghost_head}}
 </head>
 <body class="{{body_class}} nav-closed">
-
-    {{navigation}}
-
     <div class="site-wrapper">
 
-        {{! Everything else gets inserted here }}
         {{{body}}}
 
         <footer class="site-footer clearfix">
-            <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+            <section class="footer-container">
+                <a href="/" class="logo">
+                    <img src="{{asset "img/logo-white.png"}}" alt="{{@blog.title}}" />
+                </a>
+                <div class="footer-links">
+                    {{{navigation}}}
+                </div>
+            </section>
+            <section class="subscribe-container">
+                <form action="//ain-t.us12.list-manage.com/subscribe/post-json?c=onSubscribe&u=59c3da1081113f5c66ecf03cd&amp;id=df6a7216ff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe" novalidate>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_59c3da1081113f5c66ecf03cd_df6a7216ff" tabindex="-1" value=""></div>
+                    <div class="loader"></div>
+                    <input type="text" value="" placeholder="your e-mail" name="EMAIL" class="email" id="mce-EMAIL" required />
+                    <div class="indicator" data-content="Want to get the latest news first? Subscribe :)"></div>
+                </form>
+            </section>
+            <section class="instafeed-container">
+                <div id="instafeed"></div>
+                <div class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></div>
+            </section>
         </footer>
 
     </div>
@@ -41,11 +55,23 @@
     {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="{{asset "js/jquery-1.11.3.min.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/moment.min.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
-    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/instafeed.min.js"}}"></script>
+
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/shareButton.js"}}"></script>
 
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-71817950-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 </body>
 </html>

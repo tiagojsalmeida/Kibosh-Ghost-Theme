@@ -1,35 +1,30 @@
 {{!< default}}
 
-{{! The comment above "< default" means - insert everything in this file into
-    the {body} of the default.hbs template, which contains our header/footer. }}
-
-{{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
 <header class="main-header post-head" {{#hasImage image}}style="background-image: url({{image}});"{{/hasImage}}>
     {{#hasVideo image}}
         <div class="post-image-overlay" style="background-image: url({{getVideoOverlay image}});"></div>
+        <div class="post-image-cover" style="background-image: url({{image}});"></div>
         <video autoplay loop poster="{{image}}" id="post-video" preload>
-            <source src="{{getVideoUrl image}}.mp4" type="video/mp4">
+            <source src="{{getVideoUrl image}}.mp4" type="video/mp4" />
             <source src="{{getVideoUrl image}}.mov" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
         </video>
     {{/hasVideo}}
 
-    {{#if tags}}
-        <nav class="main-header-tags">
-            {{tags separator=""}}
-        </nav>
-    {{/if}}
-
-    <nav class="main-nav clearfix">
-        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
-    </nav>
+    <!--{{#if tags}}-->
+        <!--<nav class="main-header-tags">-->
+            <!--{{tags separator=""}}-->
+        <!--</nav>-->
+    <!--{{/if}}-->
 </header>
 
 <main class="content" role="main">
+    {{#if tags}}
+        <section class="main-header-tags">
+            {{tags separator=""}}
+        </section>
+    {{/if}}
     <article class="{{post_class}}">
 
         <header class="post-header">
@@ -79,6 +74,20 @@
 
         </footer>
 
+        <!--<div id="disqus_thread"></div>-->
+
+        <!--<script type="text/javascript">-->
+            <!--var disqus_identifier = '{{post.id}}';-->
+
+            <!--/* * * DON'T EDIT BELOW THIS LINE * * */-->
+            <!--(function() {-->
+                <!--var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;-->
+                <!--dsq.src = '//aintitnice.disqus.com/embed.js';-->
+                <!--(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);-->
+            <!--})();-->
+        <!--</script>-->
+
+        <div class="fb-comments" data-colorscheme="light" data-href="{{url absolute="true"}}"  data-numposts="5" data-width="100%"></div>
     </article>
 </main>
 
@@ -87,7 +96,7 @@
     <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
         <section class="post">
             <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
+            <p>{{excerpt words="8"}}&hellip;</p>
         </section>
     </a>
     {{/next_post}}
@@ -95,7 +104,7 @@
     <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
         <section class="post">
             <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
+            <p>{{excerpt words="8"}}&hellip;</p>
         </section>
     </a>
     {{/prev_post}}
