@@ -21,24 +21,23 @@
 
     var shareItem = $( '[data-share]' );
 
+    function shareUrlType(type, url){
+        switch( type ){
+            case 'twitter':
+                return 'https://twitter.com/share?url=' + url;
+            case 'gplus':
+                return 'https://plus.google.com/share?url=' + url;
+            default:
+            case 'facebook':
+                return 'https://www.facebook.com/dialog/share?app_id=539160566247943&display=popup&href=' + url + '&redirect_uri=' + url;
+        }
+    }
+
     shareItem.each(function(k, item){
         item.onclick = function(e) {
             e.preventDefault();
-            var shareUrl = false,
-                type = this.getAttribute('data-share');
-            switch( type ){
-                case 'twitter':
-                    shareUrl = 'https://twitter.com/share?url=';
-                    break;
-                case 'gplus':
-                    shareUrl = 'https://plus.google.com/share?url=';
-                    break;
-                default:
-                case 'facebook':
-                    shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=';
-                    break;
-            }
-            var shareItemWindow = window.open( shareUrl + document.URL, type + '-popup', 'height=350,width=600' );
+            var type = this.getAttribute('data-share');
+            var shareItemWindow = window.open( shareUrlType( type, document.URL ), type + '-popup', 'height=350,width=600' );
             if(shareItemWindow && shareItemWindow.focus) { shareItemWindow.focus(); }
             return false;
         }
