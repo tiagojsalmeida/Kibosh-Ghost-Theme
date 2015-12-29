@@ -12,11 +12,13 @@
         </video>
     {{/hasVideo}}
 
-    <!--{{#if tags}}-->
-        <!--<nav class="main-header-tags">-->
-            <!--{{tags separator=""}}-->
-        <!--</nav>-->
-    <!--{{/if}}-->
+    {{#contentFor "metaTags"}}
+        <meta property="og:title" content="{{title}}" />
+        <meta property="og:url" content="{{url absolute="true"}}"/>
+        <meta property="og:description" content="{{excerpt}}"/>
+        <meta property="article:author" content="{{author.website}}">
+        <meta property="og:type" content="article">
+    {{/contentFor}}
 </header>
 
 <main class="content" role="main">
