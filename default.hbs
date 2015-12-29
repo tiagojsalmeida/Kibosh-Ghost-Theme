@@ -11,8 +11,6 @@
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{{block "metaTags"}}}
-    <meta property="fb:app_id" content="539160566247943"/>
 
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
 
@@ -23,6 +21,8 @@
 
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
+    {{{block "metaTags"}}}
+    <meta property="fb:app_id" content="539160566247943"/>
 </head>
 <body class="{{body_class}} nav-closed">
     <div class="site-wrapper">
