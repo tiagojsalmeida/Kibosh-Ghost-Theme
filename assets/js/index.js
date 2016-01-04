@@ -27,7 +27,7 @@
                 if(arrival.diff() > 0 ){
                     elm.innerHTML = arrival.fromNow();
                     setTimeout(me, 1000);
-                } else if( !elm.closest('a').attr('href') ){
+                } else if( !elm.closest('map-tag').attr('href') ){
                     elm.innerHTML = 'Coming soon';
                 }
             }, 0);
