@@ -3,12 +3,15 @@
 
 {{! The big featured header }}
 <header class="main-header {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
+    <div class="logo">
+        <img src="{{asset "img/logo-white.png"}}" alt="{{@blog.title}}" />
+    </div>
 </header>
 
 {{! The main content area on the homepage }}
 <main id="content" class="content" role="main">
     <article class="read-next map-tags">
-        <a class="read-next-story map-tag" href="/tag/Germany" style="background-image: url('{{asset "img/Germany.png"}}')">
+        <a class="read-next-story map-tag" href="tag/Germany" style="background-image: url('{{asset "img/Germany.png"}}')">
             <div class="read-next-title">
                 Germany
                 <div class="read-next-countdown" data-countdown="Jan 04 2016"></div>
