@@ -5,27 +5,30 @@
 
 {{! Everything inside the #author tags pulls data from the author }}
 {{#author}}
-    <header class="main-header author-head {{#if cover}}" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
-        <nav class="main-nav overlay clearfix">
-        </nav>
-    </header>
+    <section class="main-header-blur">
+        <header class="main-header author-head {{#if cover}}" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
+        </header>
+    </section>
 
-    <section class="author-profile inner">
+
+    <section class="author-profile-image">
         <!--{{#if image}}-->
-        <!--<figure class="author-image">-->
-            <!--<div class="img" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></div>-->
-        <!--</figure>-->
+            <figure class="author-image">
+                <div class="img" style="background-image: url({{image}})"><span class="hidden">{{name}}</span></div>
+            </figure>
         <!--{{/if}}-->
-        <h1 class="author-title">{{name}}</h1>
+        <h1>{{name}}</h1>
+    </section>
+    <section class="author-profile inner">
         <section class="post-content">
-            <p>Covering over a thousand square kilometres with almost 8 million people, it’s hard to know where to start exploring a mega-metropolis like London. Taken as a whole, the city seems brash, noisy and impenetrable. But when you break it down, borough by borough, the real character shines through. From East End market traders on Roman Road, the oldest trade route in Britain, to the oh-so-chic (and expensive) fashions of Chelsea, every area – every street, even – has its own story to tell.</p>
-            <p>Black cabs, red buses, grey skies... welcome to London <br>
-                Black cabs, red buses, grey skies… welcome to London <br>
-                And it’s a story that’s constantly evolving. With the influx of immigrants from nations around the world – most recently, Eastern Europe – whole areas are taking on new and rapidly changing identities. Like Brick Lane, for example. Once a haven for Huguenots fleeing religious persecution in France, the area became home to the Irish, then Ashkenazi Jews, before morphing again under the influence of today’s Bengali population. Each group left its mark through food, music and religion. It’s this delightful mish-mash of normally disparate cultures that makes London neighbourhoods so wonderful to explore.</p>
+            <p>23, Portuguese, <a href="http://github.com/tiagojsalmeida" target="_blank">Geek</a>, <a href="https://www.instagram.com/explore/tags/whathaveicooked/" target="_blank">Foodie</a>, <a href="https://www.instagram.com/explore/tags/handstandnomad/" target="_blank">Handstand maniac</a>, <a href="https://www.instagram.com/p/4AELU1G6bq/" target="_blank">Muscle Up bird</a>, Music lover and Adventure seeker.</p>
 
-            <p><img src="http://www.urbantravelblog.com/wp-content/uploads/2009/11/IMG_2205-1024x768.jpg" alt=""></p>
+            <p>Been accepted to <a href="http://www.remoteyear.com" target="_blank">Remote Year</a> and will live one month in 12 different cities among 74 other inspiring people. <br>
+                We will work remotely while visiting South America, Europe, and Asia and with many adventures to come.</p>
 
-            <p>London is a city in flux, a city whose population and culture is influenced by and, in turn, influences the world. You can almost feel the creativity humming as people from all over the globe mix to create an atmosphere unlike any other. Dive in and see!</p>
+            <p>Packing my life inside a carry-on backpack with a laptop, few clothes and some gadgets.</p>
+
+            <p>Follow me around the world to read my stories, adventures and some piece of advise.</p>
         </section>
     </section>
 {{/author}}

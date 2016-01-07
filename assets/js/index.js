@@ -40,7 +40,7 @@
             userId: '241591768',
             clientId: 'd1c9767140854a8e93b87e53be4a1859',
             accessToken: '241591768.d1c9767.c07ec3c6efdf457a81627d8c4b0d1b93',
-            template: '<a href="{{link}}" class="instafeed-image"><img src="{{image}}" alt="{{caption}}" /></a>',
+            template: '<a href="{{link}}" target="_blank" class="instafeed-image"><img src="{{image}}" alt="{{caption}}" /></a>',
             limit: 10
         });
         feed.run();

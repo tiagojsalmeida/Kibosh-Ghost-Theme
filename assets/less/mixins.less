@@ -59,6 +59,14 @@
 	transition: @args;
 }
 
+.blur(@value){
+	-webkit-filter: blur(@value);
+	-moz-filter: blur(@value);
+	-o-filter: blur(@value);
+	-ms-filter: blur(@value);
+	filter: blur(@value);
+}
+
 .user-select (@val) {
 	-webkit-touch-callout:  @val;
 	-webkit-user-select:    @val;
