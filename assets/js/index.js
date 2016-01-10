@@ -2,7 +2,6 @@
  * Main JS file for Kibosh behaviours
  */
 
-/* globals jQuery, document */
 (function ($, undefined) {
     "use strict";
 
@@ -12,7 +11,6 @@
 
         var $postContent = $(".post-content");
         $postContent.fitVids();
-        //$(".scroll-down").arctic_scroll();
 
         setupCountdowns();
         setupNewsletterForm();
@@ -47,37 +45,58 @@
     }
 
     function setupNewsletterForm(){
-        var $form = $("form.subscribe"),
-            $input = $form.find('input.email'),
-            $indicator = $form.find(".indicator");
+        var $toEmbed = $('[embed-subscribe]');
 
-        if($form){
-            $form.on("submit", function(e){
-                if ( e ) e.preventDefault();
-                if ( validate_input() ) { register(); } else {
-                    $indicator.attr("data-content", "Please enter a valid e-mail.");
+        if($toEmbed){
+            $toEmbed.each(function(k,elm){
+                $(elm).html( $("form.subscribe").clone() );
+                $(elm).find("form").addClass("embed-subscribe");
+                if( $(elm).attr('embed-subscribe') ){
+                    $(elm).find(".indicator").attr("data-content", $(elm).attr('embed-subscribe') );
                 }
-
-            });
-
-            $input.on("input", function(){
-                $indicator.attr("data-content", "Now hit enter!");
-            });
-            $input.keypress(function(event) {
-                if (event.which == 13) {
-                    event.preventDefault();
-                    $form.submit();
-                }
-            });
+            })
         }
 
-        function validate_input() {
+        var $forms = $("form.subscribe");
+
+        if($forms){
+            $forms.each(function(k,elm){
+                var $elm = $(elm),
+                    $input = $elm.find('input.email'),
+                    $loader = $elm.find('.loader'),
+                    $indicator = $elm.find(".indicator");
+
+                $elm.on("submit", function(e){
+                    if ( e ) e.preventDefault();
+                    if ( validate_input( $input ) ) {
+                        register( $elm, $input, $indicator, $loader );
+                    } else {
+                        $indicator.attr("data-content", "Please enter a valid e-mail.");
+                    }
+
+                });
+
+                $input.on("input", function(){
+                    console.error($elm);
+                    $indicator.attr("data-content", "Now hit enter!");
+                });
+                $input.keypress(function(event) {
+                    if (event.which == 13) {
+                        event.preventDefault();
+                        $elm.submit();
+                    }
+                });
+            });
+
+        }
+
+        function validate_input( $input ) {
             var email = $input.val();
             var ex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
             return ex.test(email);
         }
 
-        function register() {
+        function register( $form, $input, $indicator, $loader) {
             $indicator.attr("data-content", "Saving...");
 
             $.ajax({
@@ -97,7 +116,7 @@
                         $indicator.attr("data-content", message);
                     } else {
                         $indicator.attr("data-content", "We've sent you an confirmation e-mail!");
-                        $(".loader").addClass("done");
+                        $loader.addClass("done");
                         $input.addClass("full");
                         $input.val("");
                     }
@@ -105,35 +124,4 @@
             });
         }
     }
-    //// Arctic Scroll by Paul Adam Davis
-    //// https://github.com/PaulAdamDavis/Arctic-Scroll
-    //$.fn.arctic_scroll = function (options) {
-    //
-    //    var defaults = {
-    //        elem: $(this),
-    //        speed: 500
-    //    },
-    //
-    //    allOptions = $.extend(defaults, options);
-    //
-    //    allOptions.elem.click(function (event) {
-    //        event.preventDefault();
-    //        var $this = $(this),
-    //            $htmlBody = $('html, body'),
-    //            offset = ($this.attr('data-offset')) ? $this.attr('data-offset') : false,
-    //            position = ($this.attr('data-position')) ? $this.attr('data-position') : false,
-    //            toMove;
-    //
-    //        if (offset) {
-    //            toMove = parseInt(offset);
-    //            $htmlBody.stop(true, false).animate({scrollTop: ($(this.hash).offset().top + toMove) }, allOptions.speed);
-    //        } else if (position) {
-    //            toMove = parseInt(position);
-    //            $htmlBody.stop(true, false).animate({scrollTop: toMove }, allOptions.speed);
-    //        } else {
-    //            $htmlBody.stop(true, false).animate({scrollTop: ($(this.hash).offset().top) }, allOptions.speed);
-    //        }
-    //    });
-    //
-    //};
 })(jQuery);

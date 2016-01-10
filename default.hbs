@@ -1,3 +1,26 @@
+<!--
+ ______     __     __   __     ______      __     ______      __   __     __     ______     ______
+/\  __ \   /\ \   /\ "-.\ \   /\__  _\    /\ \   /\__  _\    /\ "-.\ \   /\ \   /\  ___\   /\  ___\
+\ \  __ \  \ \ \  \ \ \-.  \  \/_/\ \/    \ \ \  \/_/\ \/    \ \ \-.  \  \ \ \  \ \ \____  \ \  __\
+ \ \_\ \_\  \ \_\  \ \_\\"\_\    \ \_\     \ \_\    \ \_\     \ \_\\"\_\  \ \_\  \ \_____\  \ \_____\
+  \/_/\/_/   \/_/   \/_/ \/_/     \/_/      \/_/     \/_/      \/_/ \/_/   \/_/   \/_____/   \/_____/
+
+
+
+The theme is named Kibosh (https://github.com/tiagojsalmeida/Kibosh-Ghost-Theme).
+I built myself by starting out from Casper (https://github.com/TryGhost/Casper).
+
+
+My goal was to be able to add full background videos instead of images and also some customizations.
+So far it's just a proof of concept and WILL NOT WORK if you use it because it's not yet public.
+
+"If you're trying to re-build this for your own site, go ahead, but it makes the world
+more boring as everything will look the same. Take shit from here and then make your
+own take on it, as I think the world needs your original expression now more than anything.
+YES, THE WORLD IS TOO BORING!!!111 MAKE IT EXCITING :O"
+This phrase came from levels.io and truly inspires me.
+
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +38,10 @@
     <link rel="shortcut icon" href="{{asset "/favicon.ico"}}" type="image/x-icon">
     <link rel="icon" href="{{asset "/favicon.ico"}}" type="image/x-icon">
 
-    {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
     <link rel="stylesheet" type="text/css" href="//weloveiconfonts.com/api/?family=entypo" />
 
-    {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
     {{{block "metaTags"}}}
     <meta property="fb:app_id" content="539160566247943"/>
@@ -55,7 +76,6 @@
 
     </div>
 
-    {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
 
     <script type="text/javascript" src="{{asset "js/jquery-1.11.3.min.js"}}"></script>

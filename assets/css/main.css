@@ -2536,6 +2536,8 @@ background-color: transparent;
  */
 form.subscribe {
   position: relative;
+}
+form.subscribe:not(.embed-subscribe) {
   top: 50%;
   left: 50%;
   max-width: 350px;
@@ -2544,6 +2546,15 @@ form.subscribe {
   -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+form.subscribe.embed-subscribe {
+  margin: 50px 0;
+}
+@media only screen and (max-width: 900px) {
+  form.subscribe.embed-subscribe input.email,
+  form.subscribe.embed-subscribe .indicator:after {
+    font-size: 1em;
+  }
 }
 form.subscribe .loader {
   position: absolute;
@@ -2592,7 +2603,8 @@ form.subscribe input.email {
 }
 form.subscribe input.email.full {
   pointer-events: none !important;
-  width: 0%;
+  width: 0;
+  padding: 0;
 }
 form.subscribe .indicator {
   position: absolute;

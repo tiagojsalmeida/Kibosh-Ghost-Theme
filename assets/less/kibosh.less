@@ -551,10 +551,23 @@ background-color: transparent;
 
 form.subscribe {
 	position: relative;
-	top: 50%;
-	left: 50%;
-	max-width: 350px;
-	.transform( translate(-50%, -50%) );
+
+	&:not(.embed-subscribe){
+		top: 50%;
+		left: 50%;
+		max-width: 350px;
+		.transform( translate(-50%, -50%) );
+	}
+
+	&.embed-subscribe {
+		margin: 50px 0;
+		@media only screen and (max-width: 900px) {
+			input.email, .indicator:after {
+				font-size: 1em;
+			}
+		}
+
+	}
 
 	.loader {
 		position: absolute;
@@ -598,7 +611,8 @@ form.subscribe {
 
 	input.email.full {
 		pointer-events: none !important;
-		width: 0%;
+		width: 0;
+		padding: 0;
 	}
 
 	.indicator {
