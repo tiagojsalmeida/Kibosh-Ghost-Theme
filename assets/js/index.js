@@ -77,7 +77,6 @@
                 });
 
                 $input.on("input", function(){
-                    console.error($elm);
                     $indicator.attr("data-content", "Now hit enter!");
                 });
                 $input.keypress(function(event) {
