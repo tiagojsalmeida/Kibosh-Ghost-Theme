@@ -1977,9 +1977,8 @@ video#post-video {
   top: 0;
   left: 0;
   background-position: center;
-  background-size: auto;
+  background-size: contain;
   background-repeat: no-repeat;
-  mix-blend-mode: soft-light;
   background-color: transparent;
   /*background-color: white;
 	mix-blend-mode: lighten;
@@ -2553,7 +2552,7 @@ form.subscribe.embed-subscribe {
 @media only screen and (max-width: 900px) {
   form.subscribe.embed-subscribe input.email,
   form.subscribe.embed-subscribe .indicator:after {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 }
 form.subscribe .loader {
