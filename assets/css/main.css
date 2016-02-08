@@ -2187,6 +2187,14 @@ background-color: transparent;
 .post:after {
   content: none;
 }
+.post ul li p:first-child,
+.post ul li p + p {
+  margin-bottom: 0.5em;
+}
+.post ul li p + p {
+  border-left: 2px solid #ddd;
+  padding: 10px;
+}
 /**
  * Share Button
  */

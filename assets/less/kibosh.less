@@ -273,6 +273,16 @@ background-color: transparent;
 	&:after{
 		content: none;
 	}
+
+	ul li {
+		p:first-child, p + p {
+			margin-bottom: 0.5em;
+		}
+		p + p{
+			border-left: 2px solid #ddd;
+			padding: 10px;
+		}
+	}
 }
 /**
  * Share Button
