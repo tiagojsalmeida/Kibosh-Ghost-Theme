@@ -2194,6 +2194,13 @@ background-color: transparent;
 .post ul li p + p {
   border-left: 2px solid #ddd;
   padding: 10px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.post ul li p + p img {
+  padding-bottom: 0;
+  padding-top: 15px;
+  margin-bottom: 0.6em;
 }
 /**
  * Share Button
@@ -2469,6 +2476,7 @@ background-color: transparent;
 .site-footer {
   position: relative !important;
   padding: 0 !important;
+  margin: 0px !important;
   background: #111111;
 }
 .site-footer .footer-container,
